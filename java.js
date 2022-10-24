@@ -20,21 +20,42 @@ if (choice == 'rock' || choice == 'scissors' || choice == 'paper')
 
 
     //determine winner and write appropriate announcement
-function game() {
+function playRound() {
     let computer= getComputerChoice();
     let player= receivePlayerInput();
 if (computer == player)
-  {alert ('tie')}
+  {alert ('tie');return 0}
   else if ( computer == 'rock' && player == 'paper')
-  {alert('you win, paper beats rock')}
+  {alert('win');return 1}
   else if ( computer == 'rock' && player == 'scissors')
-  {alert('you loose, rock beats scissors')}
+  {alert('loss');return -1}
   else if (computer == 'paper' && player == 'scissors')
-  {alert('you win, scissors beats paper')}
+  {alert('win');return 1}
   else if (computer == 'paper' && player == 'rock')
-  {alert('you loose, paper beats rock')}
+  {alert('loss');return -1}
   else if (computer == 'scissors' && player == 'rock')
-  {alert('you win, rock beats scissors')}
+  {alert('win');return 1}
   else if (computer == 'scissors' && player == 'paper')
-  {alert('you loose, scissors beats paper')}
+  {alert('loss');return -1}
+}
+
+   //create function to play 5 rounds and calculate winner
+var sum = 0;
+   function game() {
+    for (let i=0 ; i<5 ; i++) {
+        let round= playRound()
+        sum += round; 
+        
+    }
+    if ( sum > 0) {
+        alert ('winner')
+    }
+    else if ( sum < 0) {
+        alert ('looser')
+    }
+
+    else { alert ('tied')}
+
+
+    return sum;
 }
