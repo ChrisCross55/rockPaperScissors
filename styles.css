@@ -1,0 +1,94 @@
+html {
+    height: 100%;
+}
+
+body {
+    display:flex;
+    background-image: url('background.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+    margin-left: 50px;
+    margin-right:50px;
+    font-size: x-large;
+    border: 5px solid grey;
+    padding: 15px;
+    background-color: rgb(112, 121, 146);
+    color:goldenrod;
+    font-weight: bold;
+    border-radius: 10px;
+}
+#container {
+    display:flex;
+    align-items: flex-end;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: flex-end;
+    justify-items: end;
+    padding-bottom: 50px;
+}
+
+.rocks { 
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.papers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scissors1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    height:auto;
+    width: 80%;
+    padding: 20px;
+    align-self: center;
+}
+
+button {
+    width:50%;
+    height:auto;
+    font-size: xx-large;
+    background-color: rgb(112, 121, 146);
+    color: goldenrod;
+    font-weight: bold;
+    font-family: fantasy;
+    border-radius: 10px;
+}
+
+.hover {
+    border: 10px solid goldenrod;
+    flex-grow:  2;
+    width:65%;        
+}
+
+.click {
+    align-self: center;
+
+}
+
+.start {
+    align-self: center;
+    font-size: 4em;
+    padding:10px;
+}
