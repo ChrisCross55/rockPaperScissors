@@ -23,10 +23,10 @@ body {
     margin-left: 50px;
     margin-right:50px;
     font-size: x-large;
-    border: 5px solid grey;
+    border: 5px solid rgb(145, 26, 26);
     padding: 15px;
-    background-color: rgb(112, 121, 146);
-    color:goldenrod;
+    color: rgb(145, 26, 26);
+    background-color:goldenrod;
     font-weight: bold;
     border-radius: 10px;
 }
@@ -69,17 +69,19 @@ button {
     width:50%;
     height:auto;
     font-size: xx-large;
-    background-color: rgb(112, 121, 146);
-    color: goldenrod;
+    color: rgb(145, 26, 26);
+    background-color: goldenrod;
     font-weight: bold;
     font-family: fantasy;
     border-radius: 10px;
 }
 
-.hover {
-    border: 10px solid goldenrod;
-    flex-grow:  2;
-    width:65%;        
+button:hover {
+    border: 10px solid rgb(145, 26, 26);
+    flex-grow:0;
+    width: 60%;
+    
+            
 }
 
 .click {
@@ -87,8 +89,17 @@ button {
 
 }
 
-.start {
+#result {
     align-self: center;
     font-size: 4em;
     padding:10px;
+    color: rgb(145, 26, 26);
+    background-color: goldenrod;
+    border-radius: 10px;
+    border:5px dotted rgb(145, 26, 26);
+}
+
+.topstyle {
+    display:flex;
+    flex-direction: row;
 }

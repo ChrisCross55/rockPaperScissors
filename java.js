@@ -7,9 +7,20 @@ else return 'scissors'
 }
 
 let playerInput;
+const result= document.getElementById('result');
 const rock = document.getElementById('rock');
 const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
+const pScore = document.querySelector('.pScore');
+const round = document.querySelector('.round');
+const cScore= document.querySelector('.cScore');
+let playerScore= 0;
+let rounds= 0;
+let computerScore=0;
+
+function DisplayWin(){
+
+}
 
 rock.addEventListener('click', () => {
   playRound();
@@ -23,45 +34,51 @@ scissors.addEventListener('click',() => {
   playRound();
   return playerInput='scissors'});
 
-    //determine winner and write appropriate announcement
-function playRound() {   //insert button that starts round
-    let computer= getComputerChoice();
-    let player= playerInput; // rewo rk to get input from start.addEventListener('click',() => playRound());button
-if (computer == player)
-  {alert ('tie');return 0}
-  else if ( computer == 'rock' && player == 'paper')
-  {alert('win');return 1}
-  else if ( computer == 'rock' && player == 'scissors')
-  {alert('loss');return -1}
-  else if (computer == 'paper' && player == 'scissors')
-  {alert('win');return 1}
-  else if (computer == 'paper' && player == 'rock')
-  {alert('loss');return -1}
-  else if (computer == 'scissors' && player == 'rock')
-  {alert('win');return 1}
-  else if (computer == 'scissors' && player == 'paper')
-  {alert('loss');return -1}
+function win() {
+  result.innerText= 'You won this round';
+  playerScore +=1;rounds +=1;
+  round.textContent=` ${rounds}`;
+  pScore.textContent= ` ${playerScore}`;
+  if (playerScore==5) {
+    result.textContent='You won the game!';
+    playerScore=0; computerScore=0; rounds=0;
+    round.textContent=` ${rounds}`;
+    pScore.textContent= ` ${playerScore}`;
+    cScore.textContent= ` ${computerScore}`;
+    }
+  return
 }
 
-   //create function to play 5 rounds and calculate winner
-//var sum = 0;
-   //function game() {
-   // for (let i=0 ; i<5 ; i++) {
-     //   let round= playRound()
-//        sum += round; 
-      
-    
-//    if ( sum > 0) {
-  //      alert ('winner')
-    //}
-   // else if ( sum < 0) {
-     //   alert ('looser')
-    //}
+function loose() {
+  result.innerText= ' You lost this round';
+  computerScore +=1;rounds += 1;
+  round.textContent= ` ${rounds}`;
+  cScore.textContent= ` ${computerScore}`;
+  if (computerScore==5) {
+    result.textContent='You lost the game!';
+    playerScore=0; computerScore=0; rounds=0;
+    round.textContent=` ${rounds}`;
+    pScore.textContent= ` ${playerScore}`;
+    cScore.textContent= ` ${computerScore}`;    
+  }
 
-  //  else { alert ('tied')}
+}
 
+function tie() {
+  rounds +=1; 
+  round.textContent=` ${rounds}`;
+  result.textContent= 'This round is a Tie';
 
-    //return sum;
-//  }
-const start= document.getElementById('start');
-start.addEventListener('click',playRound());
+}
+    //determine winner and change scores to reflect it
+function playRound() {  
+    let computer= getComputerChoice();
+    let player= playerInput; 
+  if (computer == player){tie()}
+  else if ( computer == 'rock' && player == 'paper') {win()}
+  else if ( computer == 'rock' && player == 'scissors'){loose()}
+  else if (computer == 'paper' && player == 'scissors') {win()}
+  else if (computer == 'paper' && player == 'rock') {loose()}
+  else if (computer == 'scissors' && player == 'rock') {win()}
+  else if (computer == 'scissors' && player == 'paper') {loose()}
+}
