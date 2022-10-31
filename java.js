@@ -6,23 +6,27 @@ else if (number <= 66) {return 'paper'}
 else return 'scissors'
 }
 
+let playerInput;
+const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
 
-    //receive player input and verify it is rock, paper, or scissors
-function receivePlayerInput() {
-    let answer = prompt('Are you battling with Rock, Paper, or Scissors?');
-    let choice = answer.toLowerCase();
-if (choice == 'rock' || choice == 'scissors' || choice == 'paper')
-    {return choice}
-    else { alert('Please double check spelling');
-       return receivePlayerInput();}
-}
+rock.addEventListener('click', () => {
+  playRound();
+  return  playerInput = 'rock';});
 
+paper.addEventListener('click',() => {
+  playRound();
+  return playerInput= 'paper'});
 
+scissors.addEventListener('click',() => {
+  playRound();
+  return playerInput='scissors'});
 
     //determine winner and write appropriate announcement
-function playRound() {
+function playRound() {   //insert button that starts round
     let computer= getComputerChoice();
-    let player= receivePlayerInput();
+    let player= playerInput; // rewo rk to get input from start.addEventListener('click',() => playRound());button
 if (computer == player)
   {alert ('tie');return 0}
   else if ( computer == 'rock' && player == 'paper')
@@ -40,22 +44,24 @@ if (computer == player)
 }
 
    //create function to play 5 rounds and calculate winner
-var sum = 0;
-   function game() {
-    for (let i=0 ; i<5 ; i++) {
-        let round= playRound()
-        sum += round; 
-        
-    }
-    if ( sum > 0) {
-        alert ('winner')
-    }
-    else if ( sum < 0) {
-        alert ('looser')
-    }
+//var sum = 0;
+   //function game() {
+   // for (let i=0 ; i<5 ; i++) {
+     //   let round= playRound()
+//        sum += round; 
+      
+    
+//    if ( sum > 0) {
+  //      alert ('winner')
+    //}
+   // else if ( sum < 0) {
+     //   alert ('looser')
+    //}
 
-    else { alert ('tied')}
+  //  else { alert ('tied')}
 
 
-    return sum;
-}
+    //return sum;
+//  }
+const start= document.getElementById('start');
+start.addEventListener('click',playRound());
